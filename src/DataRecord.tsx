@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import { 
-  TextHeadline1,
-  TextSection,
-  primaryColor
+  TextHeadline1
 } from "BaseStyles";
 import { Section, SectionProps } from "SectionComponent";
-import { LabeledText, LabeledTextProps } from "TextComponent";
+import { LabeledText } from "TextComponent";
 
 const Container = styled.div`
   max-width: 500px;
 `;
 
-interface DataRecord {
+interface iDataRecord {
   title: string;
   sections: SectionProps[];
 }
 
 interface DataRecordProps {
-  data: DataRecord;
+  data: iDataRecord;
 }
 
 export const DataRecord = (props: DataRecordProps) => {
