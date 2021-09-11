@@ -12,7 +12,12 @@ const io = require("socket.io")(server, {
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+    // What to do here?
+    socket.on('message', (data) => {
+        console.log(data);
+    });
     socket.on('disconnect', () => {
+        // What to do here?
         console.log('user disconnected');
     });
 });
