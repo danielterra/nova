@@ -1,33 +1,14 @@
-// command, response and spawn is available on the global scope
-const executeCommand = (args, callback) => {
+const { spawn } = require("child_process");
+
+const executeCommand = (args, onStdout, onStdErr, onErr, onClose) => {
+    args = args.split(' ');
     const command = args.shift();
     const commandProcess = spawn(command, args);
-    const stdout=[];
-    const stderr=[];
 
-    const log = (text) => {
-        console.log(`buildUI: ${text}`);
-    }
-
-    commandProcess.stdout.on("data", data => {
-        stdout.push(data);
-    });
-
-    commandProcess.stderr.on("data", data => {
-        stderr.push(data);
-    });
-
-    commandProcess.on('error', (error) => {
-        log(`error: ${error.message}`);
-    });
-
-    commandProcess.on("close", code => {
-        callback(stdout, stderr);
-    });
+    commandProcess.stdout.on("data", onStdout);
+    commandProcess.stderr.on("data", onStdErr);
+    commandProcess.on('error', onErr);
+    commandProcess.on("close", onClose);
 }
 
-const clearCommand = command.splice(0,2);
-executeCommand(clearCommand, (stdout, stderr) => {
-    response = {stdout,stderr};
-    return response;
-});
+module.exports = executeCommand;

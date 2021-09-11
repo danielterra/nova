@@ -4,6 +4,8 @@ const { Server } = require("socket.io");
 const http = require('http');
 const app = express();
 const server = http.createServer(app);
+const executeCommand = require('./execute');
+
 const io = require("socket.io")(server, {
     cors: {
       origin: "*"
@@ -11,13 +13,38 @@ const io = require("socket.io")(server, {
 });
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
-    // What to do here?
-    socket.on('message', (data) => {
-        console.log(data);
+    socket.on('execute', (command) => {
+        executeCommand(command, 
+            (stdout) => {
+                console.log(stdout.toString());
+                const output = stdout.toString();
+                socket.emit(`executeResponse`, {
+                    command,
+                    stdout: output
+                });
+            },
+            (stderr) => {
+                socket.emit(`executeResponse`, {
+                    command,
+                    stderr
+                });
+            },
+            (err) => {
+                socket.emit(`executeResponse`, {
+                    command,
+                    err
+                });
+            },
+            (close) => {
+                socket.emit(`executeResponse`, {
+                    command,
+                    close
+                });
+            }
+        )
     });
+
     socket.on('disconnect', () => {
-        // What to do here?
         console.log('user disconnected');
     });
 });

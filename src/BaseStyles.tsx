@@ -33,6 +33,7 @@ export const TextBody1 = styled.p`
     color: ${secondaryColor};
     font-size: 16px;
     font-weight: 500;
+    white-space: pre;
 `;
 
 export const TextBody2 = styled.label`
