@@ -17,6 +17,10 @@ import { ReferenceField } from './ReferenceField';
 
 const Container = styled.div`
     padding: 20px;
+    max-height: 100%;
+    width: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
 `;
 
 export interface DRField {

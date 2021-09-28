@@ -189,7 +189,7 @@
     },
     "data": {
         "title": "Data Record Documentation",
-        "description": "This is a brief documentation of the usage of the Data Record component",
+        "description": "This component is designed to receive two parâmeters, a data, that is a flat json, and a schema, that describles how to render each of the keys in the json data, to render a human readable record. \n\nBelow you can see each of the schema types with examples.",
         "field_short_text_title": "short-text",
         "field_short_text_schema": {
             "type": "short-text",

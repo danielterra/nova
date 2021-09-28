@@ -1,0 +1,49 @@
+{
+    "data": {
+        "title": "NOVA",
+        "okr_1": "Make the computer more useful, by providing the means for a non technical user, to manage data, transform it in information, and make automations.",
+        "okr_2": "User should be abble to manage their expenses in NOVA over a spreadsheet",
+        "okr_2_kr_1": "User can manage their expenses data manually",
+        "okr_2_kr_2": "User can answer how much he has to pay in a certain month",
+        "okr_2_kr_3": "User can automate to receive an email in the morning when he has any account to pay that day",
+        "okr_2_kr_4": "NPS (Net Promoter Score) above 7 (0-10)"
+    },
+    "schema": {
+        "title": {
+            "type": "short-text",
+            "section": "meta",
+            "label": "title",
+            "isTitle": true
+        },
+        "okr_1": {
+            "type": "long-text",
+            "section": "OKR 1",
+            "label": "Objective"
+        },
+        "okr_2": {
+            "type": "long-text",
+            "section": "OKR 2",
+            "label": "Objective"
+        },
+        "okr_2_kr_1": {
+            "type": "short-text",
+            "section": "OKR 2",
+            "label": "Key Result 1"
+        },
+        "okr_2_kr_2": {
+            "type": "short-text",
+            "section": "OKR 2",
+            "label": "Key Result 2"
+        },
+        "okr_2_kr_3": {
+            "type": "short-text",
+            "section": "OKR 2",
+            "label": "Key Result 3"
+        },
+        "okr_2_kr_4": {
+            "type": "short-text",
+            "section": "OKR 2",
+            "label": "Key Result 4"
+        }
+    }
+}

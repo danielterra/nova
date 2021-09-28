@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { DataRecord } from 'DataRecord';
 import { NovaCoreConnection } from "NovaCoreConnection";
-import { DataRecordDoc } from "DataRecordDoc";
 import { Socket } from "socket.io-client";
+
+// DOCS
+import dataRecordDoc from './Docs/DataRecordDoc.json';
+import novaDoc from './Docs/Nova.json';
 
 const OrionContainer = styled.div`
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: top;
+    overflow-x: auto;
     >*{
         margin: 20px;
+        width: 500px;
+        flex-shrink: 0;
     }
 `;
 
@@ -32,7 +39,8 @@ export const Orion = () => {
             <NovaCoreConnection 
                 handleSocketConnected={handleSocketConnected}
                 handleSocketDisconnected={handleSocketDisconnected}/>
-            <DataRecordDoc/>
+            <DataRecord data={novaDoc.data} schema={novaDoc.schema}/>
+            <DataRecord data={dataRecordDoc.data} schema={dataRecordDoc.schema}/>
         </OrionContainer>
     )
 }
