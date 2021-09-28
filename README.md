@@ -1,2 +1,2 @@
 # nova
-NOVA AI
+NOVA

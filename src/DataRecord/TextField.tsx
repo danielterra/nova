@@ -7,9 +7,7 @@ export interface TextFieldProps {
     content: string;
 }
 
-const FieldContainer = styled.div`
-
-`;
+const FieldContainer = styled.div``;
 
 export const TextField = (props: TextFieldProps) => {
     const {label, content} = props;
