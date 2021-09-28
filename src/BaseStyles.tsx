@@ -46,3 +46,14 @@ export const Code = styled.pre`
     color: ${secondaryColor};
     font-size: 10px;
 `;
+
+export const OrionColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow-y: auto;
+    >*{
+        flex-shrink: 0;
+        margin-bottom: 20px;
+    }
+`;

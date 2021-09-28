@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { DataRecord } from 'DataRecord';
 import { NovaCoreConnection } from "NovaCoreConnection";
 import { Socket } from "socket.io-client";
+import {Youtube} from "./Youtube";
 
 // DOCS
 import dataRecordDoc from './Docs/DataRecordDoc.json';
@@ -57,6 +58,7 @@ export const Orion = () => {
                 handleSocketDisconnected={handleSocketDisconnected}/>
             <DataRecord data={novaDoc.data} schema={novaDoc.schema}/>
             <DataRecord data={dataRecordDoc.data} schema={dataRecordDoc.schema}/>
+            <Youtube/>
         </OrionContainer>
     )
 }
