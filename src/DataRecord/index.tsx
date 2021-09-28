@@ -19,9 +19,11 @@ import { ReferenceField } from './ReferenceField';
 const Container = styled.div`
     padding: 20px;
     max-height: 100%;
-    width: 500px;
+    max-width: 500px;
     overflow-y: auto;
     overflow-x: hidden;
+    background: #00ffe724;
+    border: 1px solid #00ffe740;
 `;
 
 export interface DRField {

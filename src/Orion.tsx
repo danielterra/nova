@@ -17,9 +17,24 @@ const OrionContainer = styled.div`
     overflow-x: auto;
     >*{
         margin: 20px;
-        width: 500px;
         flex-shrink: 0;
+        z-index: 1;
     }
+`;
+
+const OrionBackground = styled.div`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: url(https://loremflickr.com/${window.screen.width}/${window.screen.height}/supernova/all);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    margin: -20px;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    filter: blur(10px);
 `;
 
 export const Orion = () => {
@@ -36,6 +51,7 @@ export const Orion = () => {
 
     return (
         <OrionContainer>
+            <OrionBackground />
             <NovaCoreConnection 
                 handleSocketConnected={handleSocketConnected}
                 handleSocketDisconnected={handleSocketDisconnected}/>
