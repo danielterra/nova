@@ -13,6 +13,7 @@ import { JsonField } from './JsonField';
 import { UrlField } from './UrlField';
 import { EmailField } from './EmailField';
 import { PhoneField } from './PhoneField';
+import { CurrencyField } from './CurrencyField';
 import { ReferenceField } from './ReferenceField';
 
 const Container = styled.div`
@@ -123,6 +124,8 @@ export const DataRecord = (props:DataRecordProps) => {
                                 return <EmailField key={key} label={schema[key].label} content={data[key]}/>
                             case 'phone':
                                 return <PhoneField key={key} label={schema[key].label} content={data[key]} variant={schema[key].variant}/>
+                            case 'currency':
+                                return <CurrencyField key={key} label={schema[key].label} content={data[key]} variant={schema[key].variant}/>
                             case 'data-record':
                                 return <ReferenceField key={key} label={getReferenceLabel(schema[key].schema, data[key])} data={data[key]} schema={schema[key].schema}/>
                             default:

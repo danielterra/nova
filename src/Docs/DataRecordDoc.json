@@ -185,6 +185,28 @@
             "variant": "whatsapp",
             "label": "whatsapp example",
             "section": "phone"
+        },
+        "field_currency_title": {
+            "type": "text",
+            "label": "component",
+            "section": "currency"
+        },
+        "field_currency_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "currency"
+        },
+        "field_currency_example": {
+            "type": "currency",
+            "variant": "BRL",
+            "label": "BRL example",
+            "section": "currency"
+        },
+        "field_currency_USD_example": {
+            "type": "currency",
+            "variant": "USD",
+            "label": "USD example",
+            "section": "currency"
         }
     },
     "data": {
@@ -273,6 +295,15 @@
             "section": "[the section]"
         },
         "field_phone_example": "+5511963900771",
-        "field_phone_whatsapp_example": "+5511963900771"
+        "field_phone_whatsapp_example": "+5511963900771",
+        "field_currency_title": "currency",
+        "field_currency_schema": {
+            "type": "currency",
+            "variant": "[USD|BRL|...] *the code of the currency",
+            "label": "[the label]",
+            "section": "[the section]"
+        },
+        "field_currency_example": 42424242.42,
+        "field_currency_USD_example": 42424242.42
     }
 }
