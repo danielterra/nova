@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/nova/static/css/main.c80bc6e7.chunk.css",
+    "main.js": "/nova/static/js/main.cd668079.chunk.js",
+    "main.js.map": "/nova/static/js/main.cd668079.chunk.js.map",
+    "runtime-main.js": "/nova/static/js/runtime-main.65e29f69.js",
+    "runtime-main.js.map": "/nova/static/js/runtime-main.65e29f69.js.map",
+    "static/js/2.9c810f0a.chunk.js": "/nova/static/js/2.9c810f0a.chunk.js",
+    "static/js/2.9c810f0a.chunk.js.map": "/nova/static/js/2.9c810f0a.chunk.js.map",
+    "index.html": "/nova/index.html",
+    "static/css/main.c80bc6e7.chunk.css.map": "/nova/static/css/main.c80bc6e7.chunk.css.map",
+    "static/js/2.9c810f0a.chunk.js.LICENSE.txt": "/nova/static/js/2.9c810f0a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.65e29f69.js",
+    "static/js/2.9c810f0a.chunk.js",
+    "static/css/main.c80bc6e7.chunk.css",
+    "static/js/main.cd668079.chunk.js"
+  ]
+}
