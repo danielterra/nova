@@ -1,0 +1,212 @@
+{
+    "schema": {
+        "title": {
+            "type": "text",
+            "label": "title",
+            "section": "meta",
+            "isTitle": true
+        },
+        "description": {
+            "type": "text",
+            "label": "description",
+            "section": "meta"
+        },
+        "field_short_text_title": {
+            "type": "text",
+            "label": "component",
+            "section": "short-text"
+        },
+        "field_short_text_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "short-text"
+        },
+        "field_short_text_example": {
+            "type": "text",
+            "label": "example",
+            "section": "short-text"
+        },
+        "field_long_text_title": {
+            "type": "text",
+            "label": "component",
+            "section": "long-text"
+        },
+        "field_long_text_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "long-text"
+        },
+        "field_long_text_example": {
+            "type": "long-text",
+            "label": "example",
+            "section": "long-text"
+        },
+        "field_date_title": {
+            "type": "text",
+            "label": "component",
+            "section": "date"
+        },
+        "field_date_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "date"
+        },
+        "field_date_example": {
+            "type": "date",
+            "label": "example",
+            "section": "date"
+        },
+        "field_date_example_age": {
+            "type": "date",
+            "label": "age variant",
+            "variant": "age",
+            "section": "date"
+        },
+        "field_date_example_countdown": {
+            "type": "date",
+            "label": "countdown variant",
+            "variant": "countdown",
+            "section": "date"
+        },
+        "field_country_title": {
+            "type": "text",
+            "label": "component",
+            "section": "country"
+        },
+        "field_country_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "country"
+        },
+        "field_country_example": {
+            "type": "country",
+            "label": "example",
+            "section": "country"
+        },
+        "field_address_title": {
+            "type": "text",
+            "label": "component",
+            "section": "address"
+        },
+        "field_address_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "address"
+        },
+        "field_address_example": {
+            "type": "address",
+            "label": "example",
+            "section": "address"
+        },
+        "field_image_title": {
+            "type": "text",
+            "label": "component",
+            "section": "image"
+        },
+        "field_image_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "image"
+        },
+        "field_image_example": {
+            "type": "image",
+            "label": "example",
+            "section": "image"
+        },
+        "field_image_avatar_example": {
+            "type": "image",
+            "variant": "avatar",
+            "label": "avatar example",
+            "section": "image",
+            "size": "160"
+        },
+        "field_json_title": {
+            "type": "text",
+            "label": "component",
+            "section": "json"
+        },
+        "field_json_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "json"
+        },
+        "field_json_example": {
+            "type": "json",
+            "label": "example",
+            "section": "json"
+        },
+        "field_url_title": {
+            "type": "text",
+            "label": "component",
+            "section": "url"
+        },
+        "field_url_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "url"
+        },
+        "field_url_example": {
+            "type": "url",
+            "label": "example",
+            "section": "url"
+        },
+        "field_email_title": {
+            "type": "text",
+            "label": "component",
+            "section": "email"
+        },
+        "field_email_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "email"
+        },
+        "field_email_example": {
+            "type": "email",
+            "label": "example",
+            "section": "email"
+        },
+        "field_phone_title": {
+            "type": "text",
+            "label": "component",
+            "section": "phone"
+        },
+        "field_phone_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "phone"
+        },
+        "field_phone_example": {
+            "type": "phone",
+            "label": "example",
+            "section": "phone"
+        },
+        "field_phone_whatsapp_example": {
+            "type": "phone",
+            "variant": "whatsapp",
+            "label": "whatsapp example",
+            "section": "phone"
+        },
+        "field_currency_title": {
+            "type": "text",
+            "label": "component",
+            "section": "currency"
+        },
+        "field_currency_schema": {
+            "type": "json",
+            "label": "schema",
+            "section": "currency"
+        },
+        "field_currency_example": {
+            "type": "currency",
+            "variant": "BRL",
+            "label": "BRL example",
+            "section": "currency"
+        },
+        "field_currency_USD_example": {
+            "type": "currency",
+            "variant": "USD",
+            "label": "USD example",
+            "section": "currency"
+        }
+    }
+}

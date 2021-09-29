@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
-  TextHeadline1
+  TextHeadline1,
+  TextSection
 } from 'BaseStyles';
 import { Section } from './SectionComponent';
 import { TextField } from './TextField';
@@ -22,8 +23,8 @@ const Container = styled.div`
     max-width: 500px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #00ffe724;
-    border: 1px solid #00ffe740;
+    background: #00ffe70f;
+    border: 1px solid #00ffe714;
 `;
 
 export interface DRField {
@@ -48,11 +49,12 @@ export interface DRMessage {
 
 interface DataRecordProps {
     data: any,
-    schema: any
+    schema: any,
+    entity: string
 }
 
 export const DataRecord = (props:DataRecordProps) => {
-    const {data, schema} = props;
+    const {data, schema, entity} = props;
     const [sections, setSections] = useState<string[]>([])
 
     useEffect(() => {
@@ -76,14 +78,6 @@ export const DataRecord = (props:DataRecordProps) => {
         }
     }
 
-    const getReferenceLabel = (schemaRef:any, dataRef:any) => {
-        for (let key in schemaRef) {
-            if (schemaRef[key].isTitle) {
-                return dataRef[key];
-            }
-        }
-    }
-
     const getDataKeysForSection = (section:string) => {
         const fieldsKeys = [];
         for (let key in schema) {
@@ -97,9 +91,10 @@ export const DataRecord = (props:DataRecordProps) => {
 
     return (
         <Container>
+            <TextSection>{entity}</TextSection>
             <TextHeadline1>{getTitle()}</TextHeadline1>
-            { sections.map(section =>
-                <Section key={section} title={section}>
+            { sections.map((section, index) =>
+                <Section key={index} title={section}>
                     {getDataKeysForSection(section).map(key => {
                         if (!data[key]) {
                             return null;
@@ -128,8 +123,8 @@ export const DataRecord = (props:DataRecordProps) => {
                                 return <PhoneField key={key} label={schema[key].label} content={data[key]} variant={schema[key].variant}/>
                             case 'currency':
                                 return <CurrencyField key={key} label={schema[key].label} content={data[key]} variant={schema[key].variant}/>
-                            case 'data-record':
-                                return <ReferenceField key={key} label={getReferenceLabel(schema[key].schema, data[key])} data={data[key]} schema={schema[key].schema}/>
+                            case 'reference':
+                                return <ReferenceField key={key} label={schema[key].label} data={data[key]} schema={schema[key].schema} entity={schema[key].entity}/>
                             default:
                                 return <TextField key={key} label={schema[key].label} content={data[key]}/>
                         }

@@ -1,13 +1,5 @@
 {
-    "data": {
-        "title": "NOVA",
-        "okr_1": "Make the computer more useful, by providing the means for a non technical user, to manage data, transform it in information, and make automations.",
-        "okr_2": "User should be abble to manage their expenses in NOVA over a spreadsheet",
-        "okr_2_kr_1": "User can manage their expenses data manually",
-        "okr_2_kr_2": "User can answer how much he has to pay in a certain month",
-        "okr_2_kr_3": "User can automate to receive an email in the morning when he has any account to pay that day",
-        "okr_2_kr_4": "NPS (Net Promoter Score) above 7 (0-10)"
-    },
+    "entity": "NOVA Documentation",
     "schema": {
         "title": {
             "type": "short-text",
@@ -15,35 +7,29 @@
             "label": "title",
             "isTitle": true
         },
-        "okr_1": {
+        "description": {
             "type": "long-text",
-            "section": "OKR 1",
-            "label": "Objective"
+            "section": "meta",
+            "label": "Overview",
+            "isTitle": true
         },
-        "okr_2": {
-            "type": "long-text",
-            "section": "OKR 2",
-            "label": "Objective"
+        "github": {
+            "type": "url",
+            "section": "meta",
+            "label": "Repository",
+            "isTitle": true
         },
-        "okr_2_kr_1": {
-            "type": "short-text",
-            "section": "OKR 2",
-            "label": "Key Result 1"
-        },
-        "okr_2_kr_2": {
-            "type": "short-text",
-            "section": "OKR 2",
-            "label": "Key Result 2"
-        },
-        "okr_2_kr_3": {
-            "type": "short-text",
-            "section": "OKR 2",
-            "label": "Key Result 3"
-        },
-        "okr_2_kr_4": {
-            "type": "short-text",
-            "section": "OKR 2",
-            "label": "Key Result 4"
+        "telegram_group": {
+            "type": "url",
+            "section": "meta",
+            "label": "Our Telegram Group",
+            "isTitle": true
         }
+    },
+    "data": {
+        "title": "NOVA",
+        "description": "Nova is a open source tool for the non technical user to manage data, extract information and create automations.\n\nHow to contribute\nYou are going to see in this screen the main OKRs of the project and the documentation of the components we are developing and their status, to contribute developing one of the components you should clone the project, and assign yourself to one of the TO DO components and send a Pull Request to our team, when we accept you PR you should create a new branch, develop and send the PR. All of our documentation will be here in the project and the comunication will be done in our Telegram group and Github PRs.\n\nThe folder structure\n- Docs: Plain json files for the docs you see here.\n- Schemas: Schema definitions\n- BaseStyles.tsx: All of the main styles that is shared",
+        "github": "https://github.com/danielterra/nova",
+        "telegram_group": "https://t.me/joinchat/hk-QD1hl7Z8yMzg5"
     }
 }

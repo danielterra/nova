@@ -1,0 +1,28 @@
+{
+    "entity": "Component Documentation",
+    "data": {
+        "title": "Data Explorer Component",
+        "description": "This component has the objective to let the user browse and manage their data repository.",
+        "status": "TO DO",
+        "definition_of_done": [
+            {
+                "title": "User should be abble to create a Schema"
+            },
+            {
+                "title": "User should be abble to browse the list of all available schemas"
+            },
+            {
+                "title": "When the User clicks on a schema, it should show all available DataRecords"
+            },
+            {
+                "title": "When the user clicks on a Data Record, it should display it"
+            },
+            {
+                "title": "User should be able to return at any point to the list of schemas and Data Record list"
+            },
+            {
+                "title": "All data should be stored as plain JSON files on the user Google Drive Account"
+            }
+        ]
+    }
+}

@@ -87,7 +87,7 @@ export const NovaCoreConnection = (props:SocketComponentProps) => {
 
     return (
         <Container>
-            {socketData && <DataRecord data={socketData} schema={schema}/>}
+            {socketData && <DataRecord data={socketData} schema={schema} entity="Novacore Widget"/>}
             {log && 
                 <DataRecord 
                     data={{
@@ -106,7 +106,8 @@ export const NovaCoreConnection = (props:SocketComponentProps) => {
                             label: 'log',
                             category: 'data'
                         }
-                    }}/>
+                    }}
+                    entity="Logs"/>
             }
         </Container>
     )

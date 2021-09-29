@@ -1,309 +1,154 @@
 {
-    "schema": {
-        "title": {
-            "type": "text",
-            "label": "title",
-            "section": "meta",
-            "isTitle": true
-        },
-        "description": {
-            "type": "text",
-            "label": "description",
-            "section": "meta"
-        },
-        "field_short_text_title": {
-            "type": "text",
-            "label": "component",
-            "section": "short-text"
-        },
-        "field_short_text_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "short-text"
-        },
-        "field_short_text_example": {
-            "type": "text",
-            "label": "example",
-            "section": "short-text"
-        },
-        "field_long_text_title": {
-            "type": "text",
-            "label": "component",
-            "section": "long-text"
-        },
-        "field_long_text_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "long-text"
-        },
-        "field_long_text_example": {
-            "type": "long-text",
-            "label": "example",
-            "section": "long-text"
-        },
-        "field_date_title": {
-            "type": "text",
-            "label": "component",
-            "section": "date"
-        },
-        "field_date_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "date"
-        },
-        "field_date_example": {
-            "type": "date",
-            "label": "example",
-            "section": "date"
-        },
-        "field_date_example_age": {
-            "type": "date",
-            "label": "age variant",
-            "variant": "age",
-            "section": "date"
-        },
-        "field_date_example_countdown": {
-            "type": "date",
-            "label": "countdown variant",
-            "variant": "countdown",
-            "section": "date"
-        },
-        "field_country_title": {
-            "type": "text",
-            "label": "component",
-            "section": "country"
-        },
-        "field_country_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "country"
-        },
-        "field_country_example": {
-            "type": "country",
-            "label": "example",
-            "section": "country"
-        },
-        "field_address_title": {
-            "type": "text",
-            "label": "component",
-            "section": "address"
-        },
-        "field_address_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "address"
-        },
-        "field_address_example": {
-            "type": "address",
-            "label": "example",
-            "section": "address"
-        },
-        "field_image_title": {
-            "type": "text",
-            "label": "component",
-            "section": "image"
-        },
-        "field_image_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "image"
-        },
-        "field_image_example": {
-            "type": "image",
-            "label": "example",
-            "section": "image"
-        },
-        "field_image_avatar_example": {
-            "type": "image",
-            "variant": "avatar",
-            "label": "avatar example",
-            "section": "image",
-            "size": "160"
-        },
-        "field_json_title": {
-            "type": "text",
-            "label": "component",
-            "section": "json"
-        },
-        "field_json_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "json"
-        },
-        "field_json_example": {
-            "type": "json",
-            "label": "example",
-            "section": "json"
-        },
-        "field_url_title": {
-            "type": "text",
-            "label": "component",
-            "section": "url"
-        },
-        "field_url_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "url"
-        },
-        "field_url_example": {
-            "type": "url",
-            "label": "example",
-            "section": "url"
-        },
-        "field_email_title": {
-            "type": "text",
-            "label": "component",
-            "section": "email"
-        },
-        "field_email_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "email"
-        },
-        "field_email_example": {
-            "type": "email",
-            "label": "example",
-            "section": "email"
-        },
-        "field_phone_title": {
-            "type": "text",
-            "label": "component",
-            "section": "phone"
-        },
-        "field_phone_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "phone"
-        },
-        "field_phone_example": {
-            "type": "phone",
-            "label": "example",
-            "section": "phone"
-        },
-        "field_phone_whatsapp_example": {
-            "type": "phone",
-            "variant": "whatsapp",
-            "label": "whatsapp example",
-            "section": "phone"
-        },
-        "field_currency_title": {
-            "type": "text",
-            "label": "component",
-            "section": "currency"
-        },
-        "field_currency_schema": {
-            "type": "json",
-            "label": "schema",
-            "section": "currency"
-        },
-        "field_currency_example": {
-            "type": "currency",
-            "variant": "BRL",
-            "label": "BRL example",
-            "section": "currency"
-        },
-        "field_currency_USD_example": {
-            "type": "currency",
-            "variant": "USD",
-            "label": "USD example",
-            "section": "currency"
-        }
-    },
+    "entity": "Component Documentation",
     "data": {
-        "title": "Data Record Documentation",
+        "title": "Data Record Component",
         "description": "This component is designed to receive two parâmeters, a data, that is a flat json, and a schema, that describles how to render each of the keys in the json data, to render a human readable record. \n\nBelow you can see each of the schema types with examples.",
-        "field_short_text_title": "short-text",
-        "field_short_text_schema": {
-            "type": "short-text",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_short_text_example": "Short text example",
-        "field_long_text_title": "long-text",
-        "field_long_text_schema": {
-            "type": "long-text",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_long_text_example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed tellus vehicula, fringilla purus eget, porttitor felis. Sed et dui vel sapien suscipit cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi accumsan nisi eros, eget ullamcorper nisi eleifend sed. Vestibulum aliquam pharetra neque non lacinia. Nullam viverra sollicitudin nisl, sit amet posuere ex dignissim a. Donec turpis erat, laoreet nec placerat sit amet, euismod vitae sapien. Maecenas iaculis urna quis nunc varius, id viverra lorem luctus. Maecenas id aliquam orci, ac egestas tellus. \nEtiam ac facilisis enim. Nullam rhoncus dolor viverra sagittis lobortis. Fusce fermentum dapibus tempor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam at nunc a urna tincidunt efficitur ac ac urna. Ut vitae congue nisi. Maecenas scelerisque justo urna, in congue diam ornare eu. Donec blandit tempor ante, eget ultricies sapien laoreet vel. Nam ultricies turpis vel turpis eleifend, in dictum massa sagittis. Donec quis hendrerit libero, sit amet tempor ipsum. Proin eleifend elit at nulla elementum, id egestas nisl vulputate.",
-        "field_date_title": "date",
-        "field_date_schema": {
-            "type": "date",
-            "variant": "[age|countdown|null]",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_date_example": "1988-10-24",
-        "field_date_example_age": "1988-10-24",
-        "field_date_example_countdown": "2025-01-01",
-        "field_country_title": "country",
-        "field_country_schema": {
-            "type": "country",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_country_example": "BR",
-        "field_address_title": "address",
-        "field_address_schema": {
-            "type": "address",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_address_example": "Av Paulista, São Paulo, SP, Brasil",
-        "field_image_title": "image",
-        "field_image_schema": {
-            "type": "image",
-            "variant": "[avatar|null]",
-            "label": "[the label]",
-            "section": "[the section]",
-            "size": "[int] *for avatar only"
-        },
-        "field_image_example": "https://loremflickr.com/640/360/cat",
-        "field_image_avatar_example": "https://loremflickr.com/160/160/portrait",
-        "field_json_title": "json",
-        "field_json_schema": {
-            "type": "json",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_json_example": {
-            "key": "some value",
-            "key2": 100,
-            "key3": {
-                "key1": "some value"
+        "status": "DOING",
+        "assigned_to": [
+            {
+                "name": "Daniel Terra",
+                "profile": "https://github.com/danielterra",
+                "telegram": "https://t.me/danielterra241088"
             }
-        },
-        "field_url_title": "url",
-        "field_url_schema": {
-            "type": "url",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_url_example": "https://github.com/danielterra/nova",
-        "field_email_title": "email",
-        "field_email_schema": {
-            "type": "email",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_email_example": "daniel_terra@icloud.com",
-        "field_phone_title": "phone",
-        "field_phone_schema": {
-            "type": "phone",
-            "variant": "[whatsapp, null]",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_phone_example": "+5511963900771",
-        "field_phone_whatsapp_example": "+5511963900771",
-        "field_currency_title": "currency",
-        "field_currency_schema": {
-            "type": "currency",
-            "variant": "[USD|BRL|...] *the code of the currency",
-            "label": "[the label]",
-            "section": "[the section]"
-        },
-        "field_currency_example": 42424242.42,
-        "field_currency_USD_example": 42424242.42
+        ],
+        "definition_of_done": [
+            {
+                "title": "User should be able to view attached files and download them"
+            },
+            {
+                "title": "User should be abble to mark any field editable on the schema"
+            },
+            {
+                "title": "User should be able to edit a short or long text field"
+            },
+            {
+                "title": "User should be able to edit a date field"
+            },
+            {
+                "title": "User should be able to edit a country field"
+            },
+            {
+                "title": "User should be able to edit an address field"
+            },
+            {
+                "title": "When the user is typing in an address field, it should display Google Maps suggestions"
+            },
+            {
+                "title": "User should be able to edit a image field by uploading a new image"
+            },
+            {
+                "title": "User should be able to edit a json field (ace editor)"
+            },
+            {
+                "title": "User should be able to edit a url field"
+            },
+            {
+                "title": "User should be able to edit a email field"
+            },
+            {
+                "title": "User should be able to edit a json phone field"
+            },
+            {
+                "title": "User should be able to edit a currency field"
+            },
+            {
+                "title": "User should be able to edit a files field by uploading or removing files"
+            }
+        ],
+        "code_examples": [
+            {
+                "title": "short-text",
+                "schema": {
+                    "type": "short-text",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "long-text",
+                "schema": {
+                    "type": "long-text",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "date",
+                "schema": {
+                    "type": "date",
+                    "variant": "[age|countdown|null]",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "country",
+                "schema": {
+                    "type": "country",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "address",
+                "schema": {
+                    "type": "address",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "image",
+                "schema": {
+                    "type": "image",
+                    "variant": "[avatar|null]",
+                    "label": "[the label]",
+                    "section": "[the section]",
+                    "size": "[int] *for avatar only"
+                }
+            },
+            {
+                "title": "json",
+                "schema": {
+                    "type": "json",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "url",
+                "schema": {
+                    "type": "url",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "email",
+                "schema": {
+                    "type": "email",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "phone",
+                "schema": {
+                    "type": "phone",
+                    "variant": "[whatsapp, null]",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            },
+            {
+                "title": "currency",
+                "schema": {
+                    "type": "currency",
+                    "variant": "[USD|BRL|...] *the code of the currency",
+                    "label": "[the label]",
+                    "section": "[the section]"
+                }
+            }
+        ]
     }
 }

@@ -19,7 +19,7 @@ const youtubeDoc = {
     },
     data: {
         title: "Youtube",
-        description: "A simple test rendering youtube videos for 'artificial inteligence'"
+        description: "A simple test rendering youtube videos for 'artificial inteligence'. \n\nThis will not work until we implement OAUTH 2 authentication with Google to make the requests."
     }
 }
 
@@ -84,9 +84,9 @@ export const Youtube = () => {
 
     return (
         <OrionColumn>
-            <DataRecord data={youtubeDoc.data} schema={youtubeDoc.schema} />
+            <DataRecord data={youtubeDoc.data} schema={youtubeDoc.schema} entity="Youtube Widget"/>
             {videos.map((video:any) => {
-                return <DataRecord data={video} schema={youtubeVideoSchema} />
+                return <DataRecord data={video} schema={youtubeVideoSchema} entity="Youtube video"/>
             })}
         </OrionColumn>
     )

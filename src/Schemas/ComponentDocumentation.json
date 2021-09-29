@@ -1,0 +1,78 @@
+{
+    "entity": "Component Documentation",
+    "schema": {
+        "title": {
+            "type": "text",
+            "label": "title",
+            "section": "meta",
+            "isTitle": true
+        },
+        "description": {
+            "type": "text",
+            "label": "description",
+            "section": "meta"
+        },
+        "status": {
+            "type": "text",
+            "label": "status",
+            "section": "Work to be done"
+        },
+        "assigned_to": {
+            "type": "reference",
+            "label": "Assigned to",
+            "section": "Work to be done",
+            "entity": "Person",
+            "schema": {
+                "name": {
+                    "type": "short-text",
+                    "label": "Name",
+                    "section": "Basic information",
+                    "isTitle": true
+                },
+                "profile": {
+                    "type": "url",
+                    "label": "Github profile",
+                    "section": "links"
+                },
+                "telegram": {
+                    "type": "url",
+                    "label": "Telegram account",
+                    "section": "links"
+                }
+            }
+        },
+        "definition_of_done": {
+            "type": "reference",
+            "label": "Definition of done",
+            "section": "Work to be done",
+            "entity": "Definition of done",
+            "schema": {
+                "title": {
+                    "type": "text",
+                    "label": "title",
+                    "section": "meta",
+                    "isTitle": true
+                }
+            }
+        },
+        "code_examples": {
+            "type": "reference",
+            "label": "Examples",
+            "section": "Released work",
+            "entity": "Code example",
+            "schema": {
+                "title": {
+                    "type": "text",
+                    "label": "component",
+                    "section": "example",
+                    "isTitle": true
+                },
+                "schema": {
+                    "type": "json",
+                    "label": "schema",
+                    "section": "example"
+                }
+            }
+        }
+    }
+}

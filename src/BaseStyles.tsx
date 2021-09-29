@@ -8,9 +8,12 @@ export const actionColor = "rgb(255, 98, 0)";
 export const actionColor2 = "rgba(255, 98, 0, 0.2)";
 
 export const TextHeadline1 = styled.h1`
-    font-size: 32px;
     color: ${secondaryColor};
+    font-size: 32px;
     font-weight: 500;
+    font-weight: 600;
+    line-height: 37px;
+    text-shadow: 2px 2px black;
 `;
 
 export const TextSection = styled.h2`
