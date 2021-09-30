@@ -17,7 +17,6 @@ export const ReferenceField = (props: ReferenceFieldProps) => {
             <TextFieldLabel>{label}</TextFieldLabel>
             <OrionColumn>
                 {Array.isArray(data) && data.map((item:any, index:number) => {
-                    console.log(item);
                     return <DataRecord key={index} data={item} schema={schema} entity={entity}/>
                 })}
                 {!Array.isArray(data) && 

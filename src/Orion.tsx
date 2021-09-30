@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { DataRecord } from 'DataRecord';
-// import { NovaCoreConnection } from "NovaCoreConnection";
 import { Socket } from "socket.io-client";
+import {Database} from "./Database";
 // import {Youtube} from "./Youtube";
 
 // DOCS
@@ -56,6 +56,7 @@ export const Orion = () => {
 
     return (
         <OrionContainer>
+            <Database />
             {/* <OrionBackground /> */}
             {/* <NovaCoreConnection 
                 handleSocketConnected={handleSocketConnected}

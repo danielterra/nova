@@ -48,10 +48,15 @@
             "entity": "Definition of done",
             "schema": {
                 "title": {
-                    "type": "text",
+                    "type": "short-text",
                     "label": "title",
                     "section": "meta",
                     "isTitle": true
+                },
+                "status": {
+                    "type": "long-text",
+                    "label": "status",
+                    "section": "meta"
                 }
             }
         },

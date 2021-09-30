@@ -3,13 +3,22 @@
     "data": {
         "title": "Data Explorer Component",
         "description": "This component has the objective to let the user browse and manage their data repository.",
-        "status": "TO DO",
+        "status": "DOING",
+        "assigned_to": [
+            {
+                "name": "Daniel Terra",
+                "profile": "https://github.com/danielterra",
+                "telegram": "https://t.me/danielterra241088"
+            }
+        ],
         "definition_of_done": [
             {
-                "title": "User should be abble to create a Schema"
+                "title": "User should be abble to create a Schema",
+                "status": "TBD: We need to define the ontology base schema like RDF (Resource Description Framework)"
             },
             {
-                "title": "User should be abble to browse the list of all available schemas"
+                "title": "User should be abble to browse the list of all available schemas",
+                "status": "WIP: It shows but we need to improve visuals for reference fields."
             },
             {
                 "title": "When the User clicks on a schema, it should show all available DataRecords"
@@ -21,7 +30,8 @@
                 "title": "User should be able to return at any point to the list of schemas and Data Record list"
             },
             {
-                "title": "All data should be stored as plain JSON files on the user Google Drive Account"
+                "title": "All data should be stored as plain JSON files on the user Google Drive Account",
+                "status": "WIP: Schemas can be saved on the Ontology colletion, we need to implement Google auth and do the sync between IndexedDB and Google Drive json files."
             }
         ]
     }
