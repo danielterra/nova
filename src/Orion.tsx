@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { DataRecord } from 'DataRecord';
 import { Socket } from "socket.io-client";
-import {Database} from "./Database";
+import {DataExplorer} from "./Database";
 // import {Youtube} from "./Youtube";
 
 // DOCS
@@ -56,16 +56,16 @@ export const Orion = () => {
 
     return (
         <OrionContainer>
-            <Database />
             {/* <OrionBackground /> */}
             {/* <NovaCoreConnection 
                 handleSocketConnected={handleSocketConnected}
-                handleSocketDisconnected={handleSocketDisconnected}/> */}
+            handleSocketDisconnected={handleSocketDisconnected}/> */}
             <DataRecord data={novaDoc.data} schema={novaDoc.schema} entity={novaDoc.entity}/>
             {okrs.data.map((okr, index) => {
                 return <DataRecord key={index} data={okr} schema={okrsSchema.schema} entity={okrsSchema.entity}/>
             })}
             <DataRecord data={dataExplorerDoc.data} schema={componentDocumentationSchema.schema} entity={componentDocumentationSchema.entity}/>
+            <DataExplorer />
             <DataRecord data={dataRecordDoc.data} schema={componentDocumentationSchema.schema} entity={componentDocumentationSchema.entity}/>
             {/* <Youtube/> */}
         </OrionContainer>
