@@ -22,53 +22,14 @@ const schema = {
         label: "version"
     },
     entities: {
-        type: "reference",
-        section: "Entities",
-        schema: {
-            name: {
-                type: "short-text",
-                section: "meta",
-                label: "title",
-                isTitle: true
-            }
-        }
+        type: "json",
+        section: "meta",
+        label: "Entities"
     },
     transactions: {
-        type: "reference",
-        section: "log",
-        entity: 'transaction',
-        schema: {
-            collection: {
-                type: "short-text",
-                section: "meta",
-                label: "Collection"
-            },
-            operation: {
-                type: "short-text",
-                section: "meta",
-                label: "Operation"
-            },
-            value: {
-                type: "json",
-                section: "meta",
-                label: "Value"
-            },
-            startedAt: {
-                type: "date",
-                label: "Started at",
-                section: "Time"
-            },
-            endedAt: {
-                type: "date",
-                label: "Ended at",
-                section: "Time"
-            },
-            error: {
-                type: "long-text",
-                label: "Reason",
-                section: "Error"
-            }
-        }
+        type: "json",
+        section: "meta",
+        label: "transactions"
     }
 }
 
@@ -84,11 +45,11 @@ interface DatabaseTransaction {
     error: string;
 }
 
-export const Database = () => {
+export const DataExplorer = () => {
     const [indexedDbData, setIndexedDbData] = useState<any>(
         {
-            title: "Database",
-            description: "This represent the local browser database with the entities and operations logs"
+            title: "Data Explorer",
+            description: "This represent the database showing the entities and operations logs"
         }
     );
     const [db, setDb] = useState<IDBPDatabase>();

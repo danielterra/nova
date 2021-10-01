@@ -2,7 +2,7 @@
     "entity": "Component Documentation",
     "data": {
         "title": "Data Explorer Component",
-        "description": "This component has the objective to let the user browse and manage their data repository.",
+        "description": "This component has the objective to let the user browse and manage their data repository.\n\nThis is done by using the browser IndexedDB to save plain json in a simple index database with ACID transactino support.\n\nThe system as a whole should be reactive, so we are implementing a process here that other components will send a message to this component, when the message is receive it will save the request on the DB, process it and emit an event response, this concept enables NOVA to be resilient in all operations, we can not trust that the browser will stey open, so we need to be able to get back on it when the user opens the browser again.",
         "status": "DOING",
         "assigned_to": [
             {

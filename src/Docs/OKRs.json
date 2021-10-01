@@ -1,10 +1,7 @@
 {
     "data": [
         {
-            "objective": "NOVA objective is to provide non technical users, a means to manage data, transform it in information, and make automations."
-        },
-        {
-            "objective": "User should be abble to manage their expenses in NOVA over a spreadsheet",
+            "objective": "User should preffer to manage their expenses in NOVA instead of a spreadsheet",
             "keyResults": [
                 {
                     "title": "User can do a CRUD of their expenses data manually",
