@@ -13,25 +13,31 @@
         ],
         "definition_of_done": [
             {
-                "title": "User should be abble to create a Schema",
-                "status": "TBD: We need to define the ontology base schema like RDF (Resource Description Framework)"
+                "title": "User should be abble to create a entity",
+                "status": "TBD: We need to define the ontology base entity like RDF (Resource Description Framework)",
+                "illustration": "https://miro.medium.com/max/812/1*oESBuinl2nN-P7NNPCiJHg.png"
             },
             {
-                "title": "User should be abble to browse the list of all available schemas",
-                "status": "WIP: It shows but we need to improve visuals for reference fields."
+                "title": "User should be abble to browse the list of all available entities",
+                "status": "WIP: It shows but we need to improve visuals for reference fields.",
+                "illustration": "https://i2.wp.com/talkinghumanities.blogs.sas.ac.uk/files/2018/10/ontology-blog-image.jpg"
             },
             {
-                "title": "When the User clicks on a schema, it should show all available DataRecords"
+                "title": "When the User clicks on a entity, it should show all available DataRecords",
+                "illustration": "https://assets.justinmind.com/wp-content/uploads/2019/10/list-ui-design-ecommerce-dashboard.png"
             },
             {
-                "title": "When the user clicks on a Data Record, it should display it"
+                "title": "When the user clicks on a Data Record, it should display it",
+                "illustration": "https://i.pinimg.com/originals/19/39/5e/19395e009c9d293fe326d44657b3e68b.png"
             },
             {
-                "title": "User should be able to return at any point to the list of schemas and Data Record list"
+                "title": "User should be able to return at any point to the list of entities and Data Record list",
+                "illustration": "https://luzkfit.com/wp-content/uploads/2021/04/return-w-page.jpeg"
             },
             {
                 "title": "All data should be stored as plain JSON files on the user Google Drive Account",
-                "status": "WIP: Schemas can be saved on the Ontology colletion, we need to implement Google auth and do the sync between IndexedDB and Google Drive json files."
+                "status": "WIP: entities can be saved on the Ontology colletion, we need to implement Google auth and do the sync between IndexedDB and Google Drive json files.",
+                "illustration": "https://digilandia.io/wp-content/uploads/2020/05/Como-usar-o-Google-Drive.jpg"
             }
         ]
     }

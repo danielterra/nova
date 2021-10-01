@@ -4,25 +4,25 @@
         "objective": {
             "type": "short-text",
             "label": "objective",
-            "section": "meta",
             "isTitle": true
         },
         "keyResults": {
             "type": "reference",
-            "label": "Key Results",
             "section": "Key Results",
             "entity": "Key result",
             "schema": {
+                "illustration": {
+                    "type": "image",
+                    "label": "illustration"
+                },
                 "title": {
                     "type": "short-text",
                     "label": "Title",
-                    "section": "meta",
                     "isTitle": true
                 },
                 "instruction": {
                     "type": "long-text",
-                    "label": "Instructions",
-                    "section": "meta"
+                    "label": "Instructions"
                 }
             }
         }

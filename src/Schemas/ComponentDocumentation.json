@@ -4,18 +4,15 @@
         "title": {
             "type": "text",
             "label": "title",
-            "section": "meta",
             "isTitle": true
         },
         "description": {
             "type": "text",
-            "label": "description",
-            "section": "meta"
+            "label": "description"
         },
         "status": {
             "type": "text",
-            "label": "status",
-            "section": "Work to be done"
+            "label": "status"
         },
         "assigned_to": {
             "type": "reference",
@@ -26,18 +23,15 @@
                 "name": {
                     "type": "short-text",
                     "label": "Name",
-                    "section": "Basic information",
                     "isTitle": true
                 },
                 "profile": {
                     "type": "url",
-                    "label": "Github profile",
-                    "section": "links"
+                    "label": "Github profile"
                 },
                 "telegram": {
                     "type": "url",
-                    "label": "Telegram account",
-                    "section": "links"
+                    "label": "Telegram account"
                 }
             }
         },
@@ -47,16 +41,18 @@
             "section": "Work to be done",
             "entity": "Definition of done",
             "schema": {
-                "title": {
-                    "type": "short-text",
-                    "label": "title",
-                    "section": "meta",
-                    "isTitle": true
+                "illustration": {
+                    "type": "image",
+                    "label": "illustration"
                 },
                 "status": {
                     "type": "long-text",
-                    "label": "status",
-                    "section": "meta"
+                    "label": "status"
+                },
+                "title": {
+                    "type": "short-text",
+                    "label": "title",
+                    "isTitle": true
                 }
             }
         },
@@ -69,13 +65,11 @@
                 "title": {
                     "type": "text",
                     "label": "component",
-                    "section": "example",
                     "isTitle": true
                 },
                 "schema": {
                     "type": "json",
-                    "label": "schema",
-                    "section": "example"
+                    "label": "schema"
                 }
             }
         }

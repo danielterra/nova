@@ -96,7 +96,7 @@ export const DataRecord = (props:DataRecordProps) => {
             { sections.map((section, index) =>
                 <Section key={index} title={section}>
                     {getDataKeysForSection(section).map(key => {
-                        if (!data[key]) {
+                        if (!data[key] || schema[key].isTitle) {
                             return null;
                         }
 

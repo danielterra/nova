@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { DataRecord } from 'DataRecord';
 import { Socket } from "socket.io-client";
-import {DataExplorer} from "./Database";
+import {DataExplorer} from "./DataExplorer";
 // import {Youtube} from "./Youtube";
 
 // DOCS

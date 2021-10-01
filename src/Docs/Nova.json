@@ -3,27 +3,20 @@
     "schema": {
         "title": {
             "type": "short-text",
-            "section": "meta",
             "label": "title",
             "isTitle": true
         },
         "description": {
             "type": "long-text",
-            "section": "meta",
-            "label": "Overview",
-            "isTitle": true
+            "label": "Overview"
         },
         "github": {
             "type": "url",
-            "section": "meta",
-            "label": "Repository",
-            "isTitle": true
+            "label": "Repository"
         },
         "telegram_group": {
             "type": "url",
-            "section": "meta",
-            "label": "Our Telegram Group",
-            "isTitle": true
+            "label": "Our Telegram Group"
         }
     },
     "data": {

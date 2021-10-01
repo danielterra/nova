@@ -7,29 +7,24 @@ import { DataRecord } from 'DataRecord';
 const schema = {
     title: {
         type: "short-text",
-        section: "meta",
         label: "title",
         isTitle: true
     },
     description: {
         type: "short-text",
-        section: "meta",
         label: "description"
     },
     version: {
         type: "short-text",
-        section: "meta",
         label: "version"
     },
     entities: {
         type: "json",
-        section: "meta",
         label: "Entities"
     },
     transactions: {
         type: "json",
-        section: "meta",
-        label: "transactions"
+        section: "logs"
     }
 }
 

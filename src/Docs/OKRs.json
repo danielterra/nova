@@ -5,19 +5,23 @@
             "keyResults": [
                 {
                     "title": "User can do a CRUD of their expenses data manually",
-                    "instruction": "Assisted test with 10 non technical users"
+                    "instruction": "Assisted test with 10 non technical users",
+                    "illustration": "https://www.clevergirlfinance.com/wp-content/uploads/2020/11/Monthly-expenses.jpg"
                 },
                 {
                     "title": "User can answer how much he has to pay in a certain month",
-                    "instruction": "Assisted test with 10 non technical users"
+                    "instruction": "Assisted test with 10 non technical users",
+                    "illustration": "https://www.mimeo.com/wp-content/uploads/2020/09/Check-out-how-an-expense-tracking-app-simplifies-reimbursements.jpg"
                 },
                 {
                     "title": "User can automate to receive an email in the morning when he has any account to pay that day",
-                    "instruction": "Assisted test with 10 non technical users"
+                    "instruction": "Assisted test with 10 non technical users",
+                    "illustration": "https://optinmonster.com/wp-content/uploads/2016/07/31-best-email-marketing-automation-tools.png"
                 },
                 {
                     "title": "NPS (Net Promoter Score) above 7 (0-10)",
-                    "instruction": "All users shoudl respond a NPS survey answering how likely they are to refer NOVA for a friend"
+                    "instruction": "All users shoudl respond a NPS survey answering how likely they are to refer NOVA for a friend",
+                    "illustration": "https://resultadosdigitais.com.br/blog/files/2018/10/nps-net-promoter-score-720x420.jpg"
                 }
             ]
         }
