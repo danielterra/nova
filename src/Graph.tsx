@@ -7,16 +7,13 @@ import {
     IGraphViewProps
 } from 'react-digraph';
 
-import { 
-    TextHeadline1,  
+import {
     actionColor, 
     actionColor2,
     secondaryColor, 
     secondaryColor2} from './BaseStyles';
 
 const GraphContainer = styled.div`
-    height: 80%;
-    padding: 20px;
     flex-grow:1;
 
     .view-wrapper {
@@ -92,56 +89,11 @@ const GraphContainer = styled.div`
     }
 `;
 
-const GraphConfig =  {
-    NodeTypes: {
-      empty: { // required to show empty nodes
-        typeText: "None",
-        shapeId: "#empty", // relates to the type property of a node
-        shape: (
-          <symbol viewBox="0 0 100 100" id="empty" key="0">
-            <circle cx="50" cy="50" r="45"></circle>
-          </symbol>
-        )
-      },
-      hex: { // required to show empty nodes
-        typeText: "Custom",
-        shapeId: "#hex", // relates to the type property of a node
-        shape: (
-          <symbol viewBox="0 0 100 100" id="hex" key="0">
-            <polygon points="100,50 75,93 25,93 0,50 25,7 75,7"></polygon>
-          </symbol>
-        )
-      }
-    },
-    NodeSubtypes: {},
-    EdgeTypes: {
-      emptyEdge: {  // required to show empty edges
-        shapeId: "#emptyEdge",
-        shape: (
-          <symbol viewBox="0 0 50 50" id="emptyEdge" key="0">
-            <circle cx="25" cy="25" r="8" fill="currentColor"> </circle>
-          </symbol>
-        )
-      }
-    }
-}
-
-interface GraphProps {
-    label: string;
-    graphViewProps:IGraphViewProps;
-}
-
-export const Graph = (props:GraphProps) => {
-    const {NodeTypes, NodeSubtypes, EdgeTypes} = GraphConfig;
-    
+export const Graph = (props:IGraphViewProps) => {
     return (
         <GraphContainer>
-            <TextHeadline1>{props.label}</TextHeadline1>
             <GraphView 
-                {...props.graphViewProps}
-                nodeTypes={NodeTypes}
-                nodeSubtypes={NodeSubtypes}
-                edgeTypes={EdgeTypes}/>
+                {...props}/>
         </GraphContainer>
     )
 }

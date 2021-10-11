@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { openDB, IDBPDatabase } from 'idb';
 import { OrionColumn } from "BaseStyles";
+import { Graph } from "Graph";
 
 import { DataRecord } from 'DataRecord';
+import { IGraphViewProps } from "react-digraph";
+import { nOntology, project } from "Schemas/Ontology";
 
 const schema = {
     title: {
@@ -17,10 +20,6 @@ const schema = {
     version: {
         type: "short-text",
         label: "version"
-    },
-    entities: {
-        type: "json",
-        label: "Entities"
     },
     transactions: {
         type: "json",
@@ -40,6 +39,51 @@ interface DatabaseTransaction {
     error: string;
 }
 
+const GraphConfig:IGraphViewProps =  {
+    nodeKey: "id",
+    edges: [],
+    nodes: [],
+    nodeTypes: {
+      empty: { // required to show empty nodes
+        typeText: "None",
+        shapeId: "#empty", // relates to the type property of a node
+        shape: (
+          <symbol viewBox="0 0 100 100" id="empty" key="0">
+            <circle cx="50" cy="50" r="45"></circle>
+          </symbol>
+        )
+      },
+      hex: {
+        typeText: "Entity",
+        shapeId: "#hex",
+        shape: (
+          <symbol viewBox="0 0 100 100" id="hex" key="0">
+            <polygon points="100,50 75,93 25,93 0,50 25,7 75,7"></polygon>
+          </symbol>
+        )
+      }
+    },
+    nodeSubtypes: {},
+    edgeTypes: {
+      emptyEdge: {  // required to show empty edges
+        shapeId: "#emptyEdge",
+        shape: (
+          <symbol viewBox="0 0 50 50" id="emptyEdge" key="0">
+            <circle cx="25" cy="25" r="8" fill="currentColor"> </circle>
+          </symbol>
+        )
+      }
+    }
+}
+
+interface GraphNode {
+    id: number;
+    title: string;
+    x?: number;
+    y?: number;
+    type: string;
+}
+
 export const DataExplorer = () => {
     const [indexedDbData, setIndexedDbData] = useState<any>(
         {
@@ -49,6 +93,8 @@ export const DataExplorer = () => {
     );
     const [db, setDb] = useState<IDBPDatabase>();
     const [transactions, setTransactions] = useState<DatabaseTransaction[]>([]);
+    const [nodes, setNodes] = useState<GraphNode[]>([]);
+    const [edges, setEdges] = useState<any[]>([]);
     
     // Create connection with indexedDB
     const initDB = async () => {
@@ -87,19 +133,39 @@ export const DataExplorer = () => {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
 
+    const updateOntologyView = async () => {
+        if (!db) {
+            return;
+        }
+
+        db.getAll("ontology")
+            .then((resp:nOntology[]) => {
+                // Fill graph
+                const newNodes:GraphNode[] = [];
+                resp.forEach((n, i) => {
+                    newNodes.push({
+                        id: i,
+                        title: n.name,
+                        type: "hex"
+                    });
+                });
+
+                setNodes(newNodes);
+            });
+    }
+
     // Database connection changed
     useEffect(() => {
         if (!db) {
             return;
         }
-        const entities = Object.values(db.objectStoreNames).map((val) => { return {name: val}});
 
         setIndexedDbData({
             ...indexedDbData,
-            entities,
             version: db.version
         });
 
+        updateOntologyView();
         updateRenderedTransactionsList();
         processPendingTransaction();
     },[db]);
@@ -115,9 +181,7 @@ export const DataExplorer = () => {
         }
 
         const dbTransactions:DatabaseTransaction[] = await db.getAll("dbTransactions");
-        console.log(dbTransactions);
         const pendingTransaction = dbTransactions.filter(t => !t.completed).pop();
-        console.log(pendingTransaction);
         
         if (!pendingTransaction) {
             return;
@@ -171,9 +235,7 @@ export const DataExplorer = () => {
                 id: guid(),
                 collection: "ontology",
                 operation: "add",
-                value: {
-                    name: "person"
-                },
+                value: project,
                 completed: false,
                 startedAt: new Date()
             }
@@ -183,10 +245,17 @@ export const DataExplorer = () => {
         processPendingTransaction();
     }
 
+    console.log(nodes);
+
     return (
         <OrionColumn>
             <button onClick={test}>teste</button>
             <DataRecord data={{...indexedDbData, transactions}} schema={schema} entity="Database Component"/>
+            <Graph
+                {...GraphConfig}
+                nodes={nodes}
+                edges={edges}
+            />
         </OrionColumn>
     )
 }
