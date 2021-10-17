@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
   TextHeadline1,
@@ -25,6 +25,15 @@ const Container = styled.div`
     overflow-x: hidden;
     background: #00ffe70f;
     border: 1px solid #00ffe714;
+`;
+
+const EntityLabel = styled(TextSection)`
+    border-bottom: none;
+    margin-bottom: 20px;
+`;
+
+const Title = styled(TextHeadline1)`
+    margin-top: 0px;
 `;
 
 export interface DRField {
@@ -91,8 +100,8 @@ export const DataRecord = (props:DataRecordProps) => {
 
     return (
         <Container>
-            <TextSection>{entity}</TextSection>
-            <TextHeadline1>{getTitle()}</TextHeadline1>
+            <EntityLabel>{entity}</EntityLabel>
+            <Title>{getTitle()}</Title>
             { sections.map((section, index) =>
                 <Section key={index} title={section}>
                     {getDataKeysForSection(section).map(key => {

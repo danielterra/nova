@@ -9,19 +9,17 @@ import {
 } from "BaseStyles";
 
 const Container = styled.div`
-    margin: 0px 0px 30px 0px;
+    margin: 20px 0px 0px 0px;
 `;
 
-const Header = styled.div`
-  border-bottom: 1px solid ${primaryColor2};
-`;
+const Header = styled.div``;
 
 const Body = styled.div<{ hidden?: boolean }>`
   height: ${(props) => props.hidden ? "0px" : "auto"};
   overflow: hidden;
 `;
 
-const TestButton = styled(TextFieldLabel)`
+const FoldButton = styled(TextFieldLabel)`
   color: ${actionColor};
   cursor: pointer;
 `;
@@ -47,7 +45,7 @@ export const Section = (props: SectionProps) => {
         {title && 
           <CustomTextSection>
             {title}
-            <TestButton onClick={() => setIsHidden(!isHidden)}>{isHidden ? 'expand' : 'minimize'}</TestButton>
+            <FoldButton onClick={() => setIsHidden(!isHidden)}>{isHidden ? 'expand' : 'minimize'}</FoldButton>
           </CustomTextSection>
         }
       </Header>

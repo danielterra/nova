@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { DataRecord } from 'DataRecord';
-import { Socket } from "socket.io-client";
-import {DataExplorer} from "./DataExplorer";
+// import {DataExplorer} from "./DataExplorer";
 // import {Youtube} from "./Youtube";
 
 // DOCS
@@ -27,33 +25,7 @@ const OrionContainer = styled.div`
     }
 `;
 
-// const OrionBackground = styled.div`
-//     width: 100%;
-//     height: 100%;
-//     position: fixed;
-//     background: url(https://loremflickr.com/${window.screen.width}/${window.screen.height}/night/all);
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     z-index: 0;
-//     margin: -20px;
-//     top: 0;
-//     left: 0;
-//     opacity: 0.6;
-//     filter: blur(10px);
-// `;
-
 export const Orion = () => {
-    const [socket, setSocket] = useState<Socket | undefined>();
-    
-    const handleSocketConnected = (socket:Socket) => {
-        socket.emit('execute', 'ifconfig');
-        setSocket(socket);
-    }
-
-    const handleSocketDisconnected = (socket:Socket) => {
-        setSocket(socket);
-    }
-
     return (
         <OrionContainer>
             {/* <OrionBackground /> */}
@@ -65,7 +37,7 @@ export const Orion = () => {
                 return <DataRecord key={index} data={okr} schema={okrsSchema.schema} entity={okrsSchema.entity}/>
             })}
             <DataRecord data={dataExplorerDoc.data} schema={componentDocumentationSchema.schema} entity={componentDocumentationSchema.entity}/>
-            <DataExplorer />
+            {/* <DataExplorer /> */}
             <DataRecord data={dataRecordDoc.data} schema={componentDocumentationSchema.schema} entity={componentDocumentationSchema.entity}/>
             {/* <Youtube/> */}
         </OrionContainer>

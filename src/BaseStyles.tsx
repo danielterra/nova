@@ -9,10 +9,8 @@ export const actionColor2 = "rgba(255, 98, 0, 0.2)";
 
 export const TextHeadline1 = styled.h1`
     color: ${secondaryColor};
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
-    font-weight: 600;
-    line-height: 37px;
     text-shadow: 2px 2px black;
 `;
 
@@ -28,13 +26,13 @@ export const TextSection = styled.h2`
 export const TextFieldLabel = styled.label`
     color: ${primaryColor2};
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
 `;
 
 export const TextBody1 = styled.p`
     color: ${secondaryColor};
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     white-space: pre-line;
 `;
