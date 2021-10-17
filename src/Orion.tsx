@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { DataRecord } from 'DataRecord';
-// import {DataExplorer} from "./DataExplorer";
-// import {Youtube} from "./Youtube";
+import {DataExplorer} from "./DataExplorer";
 
 // DOCS
 import novaDoc from './Docs/Nova.json';
@@ -28,18 +27,13 @@ const OrionContainer = styled.div`
 export const Orion = () => {
     return (
         <OrionContainer>
-            {/* <OrionBackground /> */}
-            {/* <NovaCoreConnection 
-                handleSocketConnected={handleSocketConnected}
-            handleSocketDisconnected={handleSocketDisconnected}/> */}
+            <DataExplorer />
             <DataRecord data={novaDoc.data} schema={novaDoc.schema} entity={novaDoc.entity}/>
             {okrs.data.map((okr, index) => {
                 return <DataRecord key={index} data={okr} schema={okrsSchema.schema} entity={okrsSchema.entity}/>
             })}
             <DataRecord data={dataExplorerDoc.data} schema={componentDocumentationSchema.schema} entity={componentDocumentationSchema.entity}/>
-            {/* <DataExplorer /> */}
             <DataRecord data={dataRecordDoc.data} schema={componentDocumentationSchema.schema} entity={componentDocumentationSchema.entity}/>
-            {/* <Youtube/> */}
         </OrionContainer>
     )
 }

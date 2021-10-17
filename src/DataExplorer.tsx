@@ -37,279 +37,253 @@ interface DatabaseTransaction {
     error: string;
 }
 
-// export const DataExplorer = () => {
-//     const [indexedDbData, setIndexedDbData] = useState<any>(
-//         {
-//             title: "Data Explorer",
-//             description: "This represent the database showing the entities and operations logs"
-//         }
-//     );
-//     const [db, setDb] = useState<IDBPDatabase>();
-//     const [transactions, setTransactions] = useState<DatabaseTransaction[]>([]);
-//     const [nodes, setNodes] = useState<GraphVisNode[]>([]);
-//     const [edges, setEdges] = useState<GraphVisEdge[]>([]);
+export const DataExplorer = () => {
+    const [indexedDbData, setIndexedDbData] = useState<any>(
+        {
+            title: "Data Explorer",
+            description: "This represent the database showing the entities and operations logs"
+        }
+    );
+    const [db, setDb] = useState<IDBPDatabase>();
+    const [transactions, setTransactions] = useState<DatabaseTransaction[]>([]);
 
-//     // Create connection with indexedDB
-//     const initDB = async () => {
-//         const dbref: IDBPDatabase = await openDB('NOVA', 1, {
-//             upgrade: (upgradeDB: IDBPDatabase) => {
-//                 if (!upgradeDB.objectStoreNames.contains('ontology')) {
-//                     upgradeDB.createObjectStore('ontology', { keyPath: "name" });
-//                 }
-//                 if (!upgradeDB.objectStoreNames.contains('dbTransactions')) {
-//                     upgradeDB.createObjectStore('dbTransactions', { keyPath: "id" });
-//                 }
+    // Create connection with indexedDB
+    const initDB = async () => {
+        const dbref: IDBPDatabase = await openDB('NOVA', 1, {
+            upgrade: (upgradeDB: IDBPDatabase) => {
+                if (!upgradeDB.objectStoreNames.contains('ontology')) {
+                    upgradeDB.createObjectStore('ontology', { keyPath: "name" });
+                }
+                if (!upgradeDB.objectStoreNames.contains('dbTransactions')) {
+                    upgradeDB.createObjectStore('dbTransactions', { keyPath: "id" });
+                }
 
-//                 // create an object store for each ontology
-//                 baseOntology.forEach(o => {
-//                     if (!upgradeDB.objectStoreNames.contains(o.name)) {
-//                         upgradeDB.createObjectStore(o.name, { keyPath: "id" });
-//                     }
-//                 });
-//             },
-//             blocked: () => {
-//                 console.error(" Called if there are older versions of the database open on the origin, so this version cannot open. This is similar to the blocked event in plain IndexedDB");
-//             },
-//             blocking: () => {
-//                 console.error("Called if this connection is blocking a future version of the database from opening. This is similar to the versionchange event in plain IndexedDB.");
-//             },
-//             terminated: () => {
-//                 console.error("Called if the browser abnormally terminates the connection, but not on regular closures like calling db.close(). This is similar to the close event in plain IndexedDB.");
-//             }
-//         });
+                // create an object store for each ontology
+                baseOntology.forEach(o => {
+                    if (!upgradeDB.objectStoreNames.contains(o.name)) {
+                        upgradeDB.createObjectStore(o.name, { keyPath: "id" });
+                    }
+                });
+            },
+            blocked: () => {
+                console.error(" Called if there are older versions of the database open on the origin, so this version cannot open. This is similar to the blocked event in plain IndexedDB");
+            },
+            blocking: () => {
+                console.error("Called if this connection is blocking a future version of the database from opening. This is similar to the versionchange event in plain IndexedDB.");
+            },
+            terminated: () => {
+                console.error("Called if the browser abnormally terminates the connection, but not on regular closures like calling db.close(). This is similar to the close event in plain IndexedDB.");
+            }
+        });
 
-//         setDb(dbref);
-//     }
+        setDb(dbref);
+    }
 
-//     // Generate a random key like mongo
-//     const guid = () => {
-//         let s4 = () => {
-//             return Math.floor((1 + Math.random()) * 0x10000)
-//                 .toString(16)
-//                 .substring(1);
-//         }
-//         //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
-//         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-//     }
+    // Generate a random key like mongo
+    const guid = () => {
+        let s4 = () => {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+    }
 
-//     const updateOntologyView = async () => {
-//         if (!db) {
-//             return;
-//         }
+    const updateOntologyView = async () => {
+        if (!db) {
+            return;
+        }
 
-//         db.getAll("ontology")
-//             .then((resp: nOntology[]) => {
-//                 // Fill graph
-//                 const newNodes: GraphVisNode[] = [];
-//                 const newEdges: GraphVisEdge[] = [];
+        db.getAll("ontology")
+            .then((resp: nOntology[]) => {
+                // Fill graph
+                console.log(resp);
+            });
+    }
 
-//                 resp.forEach(n => {
-//                     newNodes.push({
-//                         id: n.name,
-//                         label: n.name,
-//                         shape: "circle"
-//                     });
+    const syncronizeBaseOntology = async () => {
+        // Update de indexDB to match the base ontology if needed.
+        if (!db) {
+            return;
+        }
 
-//                     if (n.relations && n.relations.length > 0) {
-//                         n.relations.forEach(r => {
-//                             newEdges.push({
-//                                 from: n.name,
-//                                 to: r.targetName,
-//                                 label: r.label
-//                             });
-//                         });
-//                     }
-//                 });
+        const savedOntology: nOntology[] = await db.getAll("ontology");
+        const entitiesToCreate: nOntology[] = baseOntology.filter(bo => {
+            let found = false;
+            savedOntology.forEach(so => {
+                if (bo.name !== so.name) {
+                    return;
+                }
+                found = true;
+            });
 
-//                 setNodes(newNodes);
-//                 setEdges(newEdges);
-//             });
-//     }
+            if (found) {
+                return false;
+            }
 
-//     const syncronizeBaseOntology = async () => {
-//         // Update de indexDB to match the base ontology if needed.
-//         if (!db) {
-//             return;
-//         }
+            return true;
+        });
 
-//         const savedOntology: nOntology[] = await db.getAll("ontology");
-//         const entitiesToCreate: nOntology[] = baseOntology.filter(bo => {
-//             let found = false;
-//             savedOntology.forEach(so => {
-//                 if (bo.name !== so.name) {
-//                     return;
-//                 }
-//                 found = true;
-//             });
+        const entitiesToUpdate: nOntology[] = baseOntology.filter(bo => {
+            let shouldUpdate = false;
+            savedOntology.forEach(so => {
+                if (bo.name !== so.name) {
+                    return;
+                }
 
-//             if (found) {
-//                 return false;
-//             }
+                if (bo.createdAt.toISOString() !== so.createdAt.toISOString()) {
+                    shouldUpdate = true;
+                    return;
+                }
 
-//             return true;
-//         });
+                if (bo.updatedAt.toISOString() !== so.updatedAt.toISOString()) {
+                    shouldUpdate = true;
+                    return;
+                }
 
-//         const entitiesToUpdate: nOntology[] = baseOntology.filter(bo => {
-//             let shouldUpdate = false;
-//             savedOntology.forEach(so => {
-//                 if (bo.name !== so.name) {
-//                     return;
-//                 }
+                if (bo.source !== so.source) {
+                    shouldUpdate = true;
+                    return;
+                }
+            });
 
-//                 if (bo.createdAt.toISOString() !== so.createdAt.toISOString()) {
-//                     shouldUpdate = true;
-//                     return;
-//                 }
+            if (shouldUpdate) {
+                return true;
+            }
 
-//                 if (bo.updatedAt.toISOString() !== so.updatedAt.toISOString()) {
-//                     shouldUpdate = true;
-//                     return;
-//                 }
+            return false;
+        });
 
-//                 if (bo.source !== so.source) {
-//                     shouldUpdate = true;
-//                     return;
-//                 }
-//             });
+        if (entitiesToCreate.length > 0) {
+            entitiesToCreate.forEach(async (ent) => {
+                await db.add("dbTransactions",
+                    {
+                        id: guid(),
+                        collection: "ontology",
+                        operation: "add",
+                        value: ent,
+                        completed: false,
+                        startedAt: new Date()
+                    }
+                );
+            });
+        }
 
-//             if (shouldUpdate) {
-//                 return true;
-//             }
+        if (entitiesToUpdate.length > 0) {
+            entitiesToUpdate.forEach(async (ent) => {
+                await db.delete("ontology", ent.name);
+                await db.add("dbTransactions",
+                    {
+                        id: guid(),
+                        collection: "ontology",
+                        operation: "add",
+                        value: ent,
+                        completed: false,
+                        startedAt: new Date()
+                    }
+                );
+            });
+        }
+    }
 
-//             return false;
-//         });
+    // Database connection changed
+    useEffect(() => {
+        if (!db) {
+            return;
+        }
 
-//         if (entitiesToCreate.length > 0) {
-//             entitiesToCreate.forEach(async (ent) => {
-//                 await db.add("dbTransactions",
-//                     {
-//                         id: guid(),
-//                         collection: "ontology",
-//                         operation: "add",
-//                         value: ent,
-//                         completed: false,
-//                         startedAt: new Date()
-//                     }
-//                 );
-//             });
-//         }
+        setIndexedDbData({
+            ...indexedDbData,
+            version: db.version
+        });
 
-//         if (entitiesToUpdate.length > 0) {
-//             entitiesToUpdate.forEach(async (ent) => {
-//                 await db.delete("ontology", ent.name);
-//                 await db.add("dbTransactions",
-//                     {
-//                         id: guid(),
-//                         collection: "ontology",
-//                         operation: "add",
-//                         value: ent,
-//                         completed: false,
-//                         startedAt: new Date()
-//                     }
-//                 );
-//             });
-//         }
-//     }
+        // Update base schema
 
-//     // Database connection changed
-//     useEffect(() => {
-//         if (!db) {
-//             return;
-//         }
+        syncronizeBaseOntology();
+        updateOntologyView();
+        updateRenderedTransactionsList();
+        processPendingTransaction();
+    }, [db]);
 
-//         setIndexedDbData({
-//             ...indexedDbData,
-//             version: db.version
-//         });
+    // Initialization
+    useEffect(() => {
+        initDB();
+    }, []);
 
-//         // Update base schema
+    const processPendingTransaction = async () => {
+        if (!db) {
+            return;
+        }
 
-//         syncronizeBaseOntology();
-//         updateOntologyView();
-//         updateRenderedTransactionsList();
-//         processPendingTransaction();
-//     }, [db]);
+        const dbTransactions: DatabaseTransaction[] = await db.getAll("dbTransactions");
+        const pendingTransaction = dbTransactions.filter(t => !t.completed).pop();
 
-//     // Initialization
-//     useEffect(() => {
-//         initDB();
-//     }, []);
+        if (!pendingTransaction) {
+            return;
+        }
 
-//     const processPendingTransaction = async () => {
-//         if (!db) {
-//             return;
-//         }
+        switch (pendingTransaction.operation) {
+            case "add":
+                try {
+                    await db.add(pendingTransaction.collection, pendingTransaction.value);
+                } catch (err: any) {
+                    pendingTransaction.error = err.toString();
+                }
+                pendingTransaction.completed = true;
+                pendingTransaction.endedAt = new Date();
+                await db.put("dbTransactions", pendingTransaction);
+                break;
 
-//         const dbTransactions: DatabaseTransaction[] = await db.getAll("dbTransactions");
-//         const pendingTransaction = dbTransactions.filter(t => !t.completed).pop();
+            default:
+                break;
+        }
 
-//         if (!pendingTransaction) {
-//             return;
-//         }
+        updateRenderedTransactionsList();
+    }
 
-//         switch (pendingTransaction.operation) {
-//             case "add":
-//                 try {
-//                     await db.add(pendingTransaction.collection, pendingTransaction.value);
-//                 } catch (err: any) {
-//                     pendingTransaction.error = err.toString();
-//                 }
-//                 pendingTransaction.completed = true;
-//                 pendingTransaction.endedAt = new Date();
-//                 await db.put("dbTransactions", pendingTransaction);
-//                 break;
+    const updateRenderedTransactionsList = async () => {
+        if (!db) {
+            return;
+        }
+        // Get all transactions in memory, sort and limit to 10 most recent results
+        const transactions: DatabaseTransaction[] = await (await db.getAll("dbTransactions")).sort((a: DatabaseTransaction, b: DatabaseTransaction) => {
+            if (a.startedAt < b.startedAt) {
+                return 1;
+            }
+            if (a.startedAt > b.startedAt) {
+                return -1;
+            }
+            return 0;
+        }).slice(0, 10);
 
-//             default:
-//                 break;
-//         }
+        // update the screen state
+        setTransactions(transactions);
+    }
 
-//         updateRenderedTransactionsList();
-//     }
+    // const test = async () => {
+    //     if (!db) {
+    //         return;
+    //     }
 
-//     const updateRenderedTransactionsList = async () => {
-//         if (!db) {
-//             return;
-//         }
-//         // Get all transactions in memory, sort and limit to 10 most recent results
-//         const transactions: DatabaseTransaction[] = await (await db.getAll("dbTransactions")).sort((a: DatabaseTransaction, b: DatabaseTransaction) => {
-//             if (a.startedAt < b.startedAt) {
-//                 return 1;
-//             }
-//             if (a.startedAt > b.startedAt) {
-//                 return -1;
-//             }
-//             return 0;
-//         }).slice(0, 10);
+    //     await db.add("dbTransactions",
+    //         {
+    //             id: guid(),
+    //             collection: "ontology",
+    //             operation: "add",
+    //             value: {},
+    //             completed: false,
+    //             startedAt: new Date()
+    //         }
+    //     );
 
-//         // update the screen state
-//         setTransactions(transactions);
-//     }
+    //     await updateRenderedTransactionsList();
+    //     processPendingTransaction();
+    // }
 
-//     const test = async () => {
-//         if (!db) {
-//             return;
-//         }
-
-//         await db.add("dbTransactions",
-//             {
-//                 id: guid(),
-//                 collection: "ontology",
-//                 operation: "add",
-//                 value: {},
-//                 completed: false,
-//                 startedAt: new Date()
-//             }
-//         );
-
-//         await updateRenderedTransactionsList();
-//         processPendingTransaction();
-//     }
-
-//     return (
-//         <OrionColumn>
-//             <button onClick={test}>teste</button>
-//             <DataRecord data={{ ...indexedDbData, transactions }} schema={schema} entity="Database Component" />
-            
-//         </OrionColumn>
-//     )
-// }
+    return (
+        <OrionColumn>
+            <DataRecord data={{ ...indexedDbData, transactions }} schema={schema} entity="Database Component" />
+        </OrionColumn>
+    )
+}
