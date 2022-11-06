@@ -1,5 +1,10 @@
+// DATA RECORD
+// Exibe um conjunto de informações em formato JSON
+// entity: Legenda que diz o tipo de informação contida
+// schema: Objeto JSON informado o schema a ser utilizado para exibir o objeto json
+// data: Objeto json a ser exibido
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import {
   TextHeadline1,
   TextSection
@@ -17,6 +22,17 @@ import { PhoneField } from './PhoneField';
 import { CurrencyField } from './CurrencyField';
 import { ReferenceField } from './ReferenceField';
 
+const openUp = keyframes`
+from {
+    max-height: 0px;
+    padding: 0px 20px;
+}
+to {
+    max-height: 50%;
+    padding: 20px 20px;
+}
+`;
+
 const Container = styled.div`
     padding: 20px;
     max-height: 100%;
@@ -25,6 +41,11 @@ const Container = styled.div`
     overflow-x: hidden;
     background: #00ffe70f;
     border: 1px solid #00ffe714;
+    animation: ${openUp} 2s ease-out;
+    transition: max-height 2s;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const EntityLabel = styled(TextSection)`

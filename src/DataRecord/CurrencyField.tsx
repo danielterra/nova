@@ -13,6 +13,15 @@ const FieldContainer = styled.div``;
 export const CurrencyField = (props: CurrencyFieldProps) => {
     const {label, content, variant} = props;
 
+    if (!content || !variant || variant.length < 3) {
+        return (
+            <FieldContainer>
+                <TextFieldLabel>Erro</TextFieldLabel>
+                <TextBody1>O valor ou variante informada não são válidos</TextBody1>
+            </FieldContainer>
+        )
+    }
+
     return (
         <FieldContainer>
             <TextFieldLabel>{label}</TextFieldLabel>

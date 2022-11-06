@@ -13,10 +13,6 @@ const FieldContainer = styled.div`
 
 `;
 
-const ImageDisplay = styled.img`
-    width: 100%;
-`;
-
 const AvatarDisplay = styled.div<{src: string, size: number}>`
     display: block;
     width: ${props => props.size}px;
@@ -24,6 +20,10 @@ const AvatarDisplay = styled.div<{src: string, size: number}>`
     background: url(${props => props.src});
     background-size: cover;
     border-radius: ${props => props.size}px;
+`;
+
+const ImageDisplay = styled(AvatarDisplay)`
+    border-radius: 0px;
 `;
 
 export const ImageField = (props: ImageFieldProps) => {
@@ -41,7 +41,7 @@ export const ImageField = (props: ImageFieldProps) => {
             return (
                 <FieldContainer>
                     <TextFieldLabel>{label}</TextFieldLabel>
-                    <ImageDisplay src={content} alt={label} />
+                    <ImageDisplay src={content} size={size} />
                 </FieldContainer>
             )
     }

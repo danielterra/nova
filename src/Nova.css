@@ -9,8 +9,18 @@
 }
 
 html, body, #root {
-  background: #000;
+  /* background: #000; */
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-image: url(https://cdn.gamedevmarket.net/wp-content/uploads/20200418003230/5be96f259d13c8fddd4ce65a5bcc7b9e-1400x788.png);
+  background-size: cover;
+  padding: 20px;
 }

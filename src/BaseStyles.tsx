@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const primaryColor = "rgb(0, 221, 255)";
-export const primaryColor2 = "rgba(0, 221, 255, 0.6)";
-export const secondaryColor = "rgb(255, 255, 255)";
+export const primaryColor2 = "rgba(0, 221, 255, 0.3)";
+export const secondaryColor = "rgb(209, 209, 209)";
 export const secondaryColor2 = "rgba(255, 255, 255, 0.2)";
 export const actionColor = "rgb(255, 98, 0)";
 export const actionColor2 = "rgba(255, 98, 0, 0.2)";
@@ -45,7 +45,7 @@ export const TextBody2 = styled.label`
 export const Code = styled.pre`
     font-family: monospace;
     color: ${secondaryColor};
-    font-size: 10px;
+    font-size: 12px;
 `;
 
 export const OrionColumn = styled.div`

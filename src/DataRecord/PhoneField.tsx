@@ -62,7 +62,6 @@ export const PhoneField = (props: PhoneFieldProps) => {
         } catch (err) {
             console.error('Failed to copy!', err)
         }
-        alert('Phone number copied');
     }
 
     switch (variant) {

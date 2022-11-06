@@ -4,7 +4,7 @@ import { TextFieldLabel, Code } from "BaseStyles";
 
 export interface JsonFieldProps {
     label: string;
-    content: string;
+    content: Object;
 }
 
 const FieldContainer = styled.div`

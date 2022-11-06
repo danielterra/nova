@@ -1,22 +1,42 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import { useState } from "react";
+import styled, {keyframes} from "styled-components";
 
 import {
-  primaryColor2,
   TextSection,
   actionColor,
   TextFieldLabel
 } from "BaseStyles";
 
+const openUp = keyframes`
+from {
+    max-height: 0px;
+}
+to {
+    max-height: 100%;
+}
+`;
+
+const closeDown = keyframes`
+from {
+    max-height: 100%;
+}
+to {
+    max-height: 0px;
+}
+`;
+
 const Container = styled.div`
     margin: 20px 0px 0px 0px;
 `;
 
-const Header = styled.div``;
+const Header = styled.div`
+    margin: 0 0 10px 0;
+`;
 
-const Body = styled.div<{ hidden?: boolean }>`
-  height: ${(props) => props.hidden ? "0px" : "auto"};
+const Body = styled.div<{ shouldHide: boolean }>`
+  max-height: ${ props => props.shouldHide ? "0px" : "100%"};
   overflow: hidden;
+  animation: ${ props => props.shouldHide ? closeDown : openUp} 2s;
 `;
 
 const FoldButton = styled(TextFieldLabel)`
@@ -32,12 +52,15 @@ const CustomTextSection = styled(TextSection)`
 export interface SectionProps {
   title: string;
   children?: any;
-  expanded?: boolean;
 }
 
 export const Section = (props: SectionProps) => {
-  const { title, expanded } = props;
+  const { title } = props;
   const [isHidden, setIsHidden] = useState<boolean>(title !== undefined);
+
+  const toggle = () => {
+    setIsHidden(!isHidden);
+  }
 
   return (
     <Container>
@@ -45,11 +68,11 @@ export const Section = (props: SectionProps) => {
         {title && 
           <CustomTextSection>
             {title}
-            <FoldButton onClick={() => setIsHidden(!isHidden)}>{isHidden ? 'expand' : 'minimize'}</FoldButton>
+            <FoldButton onClick={toggle}>{isHidden ? 'expand' : 'minimize'}</FoldButton>
           </CustomTextSection>
         }
       </Header>
-      <Body hidden={isHidden}>
+      <Body shouldHide={isHidden}>
         {props.children}
       </Body>
     </Container>

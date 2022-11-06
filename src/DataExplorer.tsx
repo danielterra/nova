@@ -1,3 +1,7 @@
+// DATA EXPLORER
+// Banco de dados local com representação visual utilizando Index DB
+// WIP
+
 import { useState, useEffect } from "react";
 import { openDB, IDBPDatabase } from 'idb';
 import { OrionColumn } from "BaseStyles";

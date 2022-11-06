@@ -50,7 +50,7 @@ export const EmailField = (props: EmailFieldProps) => {
         } catch (err) {
             console.error('Failed to copy!', err)
         }
-        alert('Email copied');
+        // alert('Email copied');
     }
 
     return (
