@@ -1,23 +1,23 @@
 # NOVA
-## Ambiente de desenvolvimento
+## Development Environment
 - Node.js ^v18
 - Yarn
 
-## Instale as dependencias
+## Install dependencies
 ```
 yarn install
 ```
 
-## Desenvolvimento de UI
-Utilizamos o Storybook para desenvolver os componentes isoladamente da lógica da aplicação, confira o [link](https://storybook.js.org/docs/react/get-started/whats-a-story)
+## UI Development
+We use Storybook to develop ui components in isolation from application logic, check out this [link](https://storybook.js.org/docs/react/get-started/whats-a-story)
 
-Inicie o storybook usando o comando
+Start Storybook
 ```
 yarn storybook
 ```
 
-### Gambeta Storybook & Node v18
-O Storybook ainda não suporta o Node.js v17 ou superior, a gambiarra no momento é executar manualmente em seu ambiente o seguinte código
+### Fixing Storybook for Node v18
+Storybook does not support Node.js v17 or higher yet, the workaround is to execute in your environment the following
 
 LINUX E MAC
 ```
@@ -29,26 +29,26 @@ WINDOWS
 set NODE_OPTIONS=--openssl-legacy-provider
 ```
 
-## Desenvolvimento do APP
-Usamos o react-scripts, mais informações no [link](https://create-react-app.dev/)
+## APP development
+We use react-scripts, more on [link](https://create-react-app.dev/)
 
-### Configurar o HTTPS
-Siga as instruções deste link para (mac)[https://stackoverflow.com/questions/62010077/set-up-https-on-localhost-for-macos-mac-os-catalina-10-15-2/73517777#73517777]
+### Configuring local HTTPS
+Follow this instructions for (mac)[https://stackoverflow.com/questions/62010077/set-up-https-on-localhost-for-macos-mac-os-catalina-10-15-2/73517777#73517777]
 
-Crie um arquivo .env como no modelo abaixo substituindo o caminho exato para os arquivos cert e key que você gerou na sua máquina.
+Create an .env file like the model bellow replacing the exact path to your cert and key files generated on the previous steps.
 ```
 HTTPS=true 
 SSL_CRT_FILE=/Users/danielborlinodeoliveira/localhost/cert.pem
 SSL_KEY_FILE=/Users/danielborlinodeoliveira/localhost/key.pem
 ```
 
-Inicie o APP usando o comando
+Star APP using
 ```
 yarn start
 ```
 
-## Preparando para publicar
-Execute o comando para preparar os arquivos para publicação, tudo será minificado e otimizado para publicação.
+## Publishing
+Run the build command to get it all minifyied and optimised
 ```
 yarn build
 ```
